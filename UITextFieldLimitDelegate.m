@@ -1,18 +1,15 @@
 //
-//  UITextFieldLimit.m
-//  UITextFieldLimit
+//  UITextFieldLimitDelegate.m
+//  TextFeldLimit
 //
-//  NO LICENCE! WOHOOO! It's developed by Jonathan Gurebo! and it means that you can do whatever you like to do.
-//  Sell it, modify it, distribute it, copy it, resell it, patent it. Do what-ever you like. But you can give me credit if you like to ;) OPTIONAL
-//
-//  Created by Jonathan Gurebo on 2014-04-12.
-//  Copyright (c) 2014 Jonathan Gurebo. All rights reserved.
+//  Created by Saif Al-Dilaimi on 14.04.14.
+//  Copyright (c) 2014 Saif Al-Dilaimi. All rights reserved.
 //
 
-#import "UITextFieldLimit.h"
+#import "UITextFieldLimitDelegate.h"
 
-@implementation UITextFieldLimit
-@synthesize limit,limitLabel;
+@implementation UITextFieldLimitDelegate
+
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -20,24 +17,23 @@
     if (self) {
         limit=10;// -- Default limit
         [self initializeLimitLabel];
-        self.delegate=self;
     }
     return self;
 }
 
+/*
 - (id)initWithCoder:(NSCoder *)inCoder {
     if (self = [super initWithCoder:inCoder]) {
         limit=10;// -- Default limit
         [self initializeLimitLabel];
-        self.delegate = self;
     }
     return self;
 }
+*/
 
 -(id)init {
     limit=10;// -- Default limit
     [self initializeLimitLabel];
-    self.delegate=self;
     return self;
 }
 
@@ -56,7 +52,7 @@
 
 -(void)initializeLimitLabelWithFont:(UIFont *)font andTextColor:(UIColor *)textColor {
     limitLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.width-([[NSNumber numberWithFloat:font.pointSize] doubleValue]*(2.285714)), 8, 30, self.bounds.size.height)];
-
+    
     [limitLabel setTextColor:textColor];
     [limitLabel setFont:font];
     
@@ -115,5 +111,6 @@
                        CGPointMake(limitLabel.center.x + 5, limitLabel.center.y)]];
     [limitLabel.layer addAnimation:shake forKey:@"position"];
 }
+
 
 @end

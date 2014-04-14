@@ -10,15 +10,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UITextFieldLimitDelegate.h"
 
 @interface UITextFieldLimit : UITextField<UITextFieldDelegate> {
     long limit;
-    IBOutlet UILabel *limitLabel;
+    UILabel *limitLabel;
 }
-@property (readwrite, nonatomic) long limit;
-@property (retain, nonatomic) IBOutlet UILabel *limitLabel;
 
+-(void)setLimit:(long)theLimit;
 -(void)initializeLimitLabelWithFont:(UIFont *)font andTextColor:(UIColor *)textColor;
 
+@property(strong, nonatomic) UITextFieldLimitDelegate *limitDelegate;
 
 @end
